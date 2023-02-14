@@ -66,9 +66,15 @@ public class SortShow extends JPanel {
 			//giving j element in lines_lengths the value of temp
 			lines_lengths[j] = temp;
 		}
-		
+
+		//The bubbleSort method
+		public void BubbleSort(){
+
+		}
+
+
 		//The selectionSort method
-		public void SelectionSort(){
+		public void SelectionSort() {
 			//getting the date and time when the selection sort starts
 			Calendar start = Calendar.getInstance();
 			//Using the selection sort to lines_lengths sort the array
@@ -79,7 +85,7 @@ public class SortShow extends JPanel {
 			Calendar end = Calendar.getInstance();
 			//getting the time it took for the selection sort to execute 
 			//subtracting the end time with the start time
-	        SortGUI.selectionTime = end.getTime().getTime() - start.getTime().getTime();
+			SortGUI.selectionTime = end.getTime().getTime() - start.getTime().getTime();
 		}
 		
 		//this method gets the smallest element in the array of lines_lengths
@@ -89,9 +95,18 @@ public class SortShow extends JPanel {
 
 			return 1; //modify this line
 		}
-		
-	///////////////////////////////////////////////////////////////////////////////////
-		
+
+		//Insertion sort method
+	public void InsertionSort(){
+
+		}
+
+		//Shell Sort method
+	public void ShellSort() {
+
+	}
+
+
 		//recursive merge sort method
 		public void R_MergeSort(){
 			//getting the date and time when the recursive merge sort starts
@@ -159,7 +174,10 @@ public class SortShow extends JPanel {
 		//getting the time it took for the iterative merge sort to execute 
 		//subtracting the end time with the start time
 	    SortGUI.imergeTime = end.getTime().getTime() - start.getTime().getTime();
-	} 
+		}
+
+
+
 
 	// Merges segments pairs (certain length) within an array 
 	public int I_MergeSegmentPairs(int l, int segmentLength)
@@ -234,6 +252,11 @@ public class SortShow extends JPanel {
 		// Copy the result back into the original array
 		for (index = first; index <= last; index++)
 			lines_lengths[index] = tempArray[index];
+	}
+
+	//Quick Sort Method
+	public void QuickSort() {
+
 	}
 
 	//////////////////////////////////////////////////////////////////////	
