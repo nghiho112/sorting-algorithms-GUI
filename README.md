@@ -9,13 +9,14 @@ Graphical demonstrations of various sorting algorithms are instructive, as they 
 insight into how an algorithm behaves. The program demonstrates different sorting algorithms by sort the vertical lines by lengths. The program will record the the time taken to run each sorting algorithm and output to the GUI.
 
 # Sorting algorithms implemented
-- [ ] Bubble sort
-- [ ] Selection sort
-- [ ] Insertion sort
-- [ ] Shell sort
-- [ ] Merge sort (Interative)
-- [ ] Merge sort (Recursive)
-- [ ] Quick sort (Recursive)
+- [x] Bubble sort
+- [x] Selection sort
+- [x] Insertion sort
+- [x] Shell sort
+- [x] Merge sort (Interative)
+- [x] Merge sort (Recursive)
+- [x] Quick sort (Recursive)
 
+# Instruction
 
-
+Run the program on Intellij IDEA CE, a window
