@@ -21,4 +21,6 @@ insight into how an algorithm behaves. The program demonstrates different sortin
 
 Run the program on Intellij IDEA CE, a GUI window will pop up demonstrates different sorting algorithms and the time it took to sort the lines. First click `Scramble Lines` to scramble line, click different sorting algorithm to see it work, and click `Reset` to make the lines scrambled again.
 
-The GUI demonstration should look like this. 
+The GUI demonstration should look like this: 
+
+<img width="1343" alt="Screenshot 2023-02-17 at 2 12 46 PM" src="https://user-images.githubusercontent.com/99046066/219784029-9f040cc4-e0b8-462c-b1a6-5456c9f125dd.png">
