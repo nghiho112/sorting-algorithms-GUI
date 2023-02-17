@@ -1,7 +1,7 @@
 # Sorting Algorithms GUI
 ## CSCE 4110 - Professor: Abdelnasser Ouda
 ## Group members: 
-1. Nghi Ho
+1. Nghi Ho (nghiho@my.unt.edu)
 2. Giang Tran (giangtran2@my.unt.edu)
 
 # Description
