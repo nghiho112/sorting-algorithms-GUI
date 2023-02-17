@@ -73,7 +73,27 @@ public class SortShow extends JPanel {
 
 	//The bubbleSort method
 	public void BubbleSort(){
+		//getting the date and time when the selection sort starts
+		Calendar start = Calendar.getInstance();
 
+		for (int i = 0 ; i < total_number_of_lines - 1; i++) {
+			for (int j = 0; j < total_number_of_lines - i - 1; j++) {
+				if (lines_lengths[j] > lines_lengths[j + 1]) {
+					swap(j, j + 1);
+
+				}
+			}
+			paintComponent(this.getGraphics());
+			delay(10);
+
+
+		}
+
+		//getting the date and time when the selection sort ends
+		Calendar end = Calendar.getInstance();
+
+		//getting the time took for the selection sort to execute
+		SortGUI.bubbleTime  = end.getTime().getTime() - start.getTime().getTime();
 	}
 
 
@@ -83,7 +103,15 @@ public class SortShow extends JPanel {
 		Calendar start = Calendar.getInstance();
 		//Using the selection sort to lines_lengths sort the array
 
-		//You need to complete this part.
+		for (int i = 0; i < total_number_of_lines; i++) {
+			int minIdx = getIndexOfSmallest(i, total_number_of_lines - 1);
+			swap(i, minIdx);
+
+			//get the graphic of the sorting algorithm
+			paintComponent(this.getGraphics());
+			delay(10);
+
+		}
 
 		//getting the date and time when the selection sort ends
 		Calendar end = Calendar.getInstance();
@@ -94,10 +122,17 @@ public class SortShow extends JPanel {
 
 	//this method gets the smallest element in the array of lines_lengths
 	public int getIndexOfSmallest(int first, int last){
+		int min = lines_lengths[first];
+		int minIdx = first;
+		while (first <= last) {
+			if (lines_lengths[first] < min) {
+				min = lines_lengths[first];
+				minIdx = first;
+			}
+			first++;
+		}
 
-		//You need to complete this part.
-
-		return 1; //modify this line
+		return minIdx; //modify this line
 	}
 
 	//Insertion sort method
@@ -153,7 +188,8 @@ public class SortShow extends JPanel {
 		Calendar start = Calendar.getInstance();
 		//assigning the size for the tempArray below
 
-		//You need to complete this part.
+		R_MergeSort(0, total_number_of_lines - 1);
+
 		Calendar end = Calendar.getInstance();
 		//getting the time it took for the iterative merge sort to execute
 		//subtracting the end time with the start time
@@ -163,20 +199,48 @@ public class SortShow extends JPanel {
 
 	//recursive merge sort method
 	public void R_MergeSort(int first, int last){
-		if(first < last){
+		if(first < last) {
+			//define the middle
+			int mid = (first + last) / 2;
+			R_MergeSort(first, mid);
+			R_MergeSort(mid + 1, last);
+			R_Merge(first, mid + 1, last);
 
-			//You need to complete this part.
-
-
+			//get the graphic of R_Merge sorting algorithm
+			paintComponent(this.getGraphics());
+			//Causing a delay for 10ms
+			delay(10);
 		}
 	}
 
 
 	//recursive merge sort method
 	public void R_Merge(int first, int mid, int last){
+		int [] tempArr = new int[total_number_of_lines];
+		int i, firstEnd, temp_pos, numsElement;
+		firstEnd = mid - 1;
+		temp_pos = first;
+		numsElement = last - first + 1;
+		while ((first <= firstEnd) && (mid <= last)) {
+			if (lines_lengths[first] <= lines_lengths[mid]) {
+				tempArr[temp_pos++] = lines_lengths[first++];
+			}
+			else {
+				tempArr[temp_pos++] = lines_lengths[mid++];
+			}
+		}
 
-		//You need to complete this part.
+		while (first <= firstEnd) {
+			tempArr[temp_pos++] = lines_lengths[first++];
+		}
+		while (mid <= last) {
+			tempArr[temp_pos++] = lines_lengths[mid++];
+		}
 
+		for (i = 0; i < numsElement; i++) {
+			lines_lengths[last] = tempArr[last];
+			last--;
+		}
 	}
 
 	//
