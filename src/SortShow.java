@@ -387,6 +387,9 @@ public class SortShow extends JPanel {
 			}
 			else done = true;
 		}
+
+		paintComponent(this.getGraphics());
+		delay(10);
 		swap(pivotIdx, left);
 		pivotIdx = left;
 
@@ -394,8 +397,6 @@ public class SortShow extends JPanel {
 	}
 	public void quickSort(int first, int last) {
 		if (first < last){
-			paintComponent(this.getGraphics());
-			delay(10);
 			int pos = partition(first, last);
 			quickSort(first, pos - 1);
 			quickSort(pos + 1, last);
