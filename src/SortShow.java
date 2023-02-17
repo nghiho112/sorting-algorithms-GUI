@@ -325,15 +325,17 @@ public class SortShow extends JPanel {
 		}
 		swap(pivotIdx, left);
 		pivotIdx = left;
+
 		return pivotIdx;
 	}
 	public void quickSort(int first, int last) {
-		paintComponent(this.getGraphics());
-		delay(10);
 		if (first < last){
+			paintComponent(this.getGraphics());
+			delay(10);
 			int pos = partition(first, last);
 			quickSort(first, pos - 1);
 			quickSort(pos + 1, last);
+
 		}
 	}
 	public void QuickSort() {
