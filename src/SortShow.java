@@ -357,55 +357,55 @@ public class SortShow extends JPanel {
 			lines_lengths[index] = tempArray[index];
 	}
 
-	//Quick Sort Method
-	public void sortFirstMiddleLast(int[] a, int first, int mid, int last){
-		order(first, mid);
-		order(mid, last);
-		order(first, mid);
-	}
-	public int partition (int first, int last){
-		int mid = (first + last)/2;
-		sortFirstMiddleLast(lines_lengths, first, mid, last);
-		swap(mid, last-1);
-
-		int pivotIdx = last -1;
-		int pivot = lines_lengths[pivotIdx];
-		int left = first + 1;
-		int right = last - 2;
+	//This method is helper method for Quick Sort
+	private int partition(int first, int last) {
+		int mid = (first + last) / 2;
+		int pivot = lines_lengths[mid]; //pivot is the middle line
 		boolean done = false;
 
-		while (!done){
-			while (lines_lengths[left] < pivot)
-				left++;
-			while (lines_lengths[right] > pivot)
-				right--;
-			assert lines_lengths[left] >= pivot && lines_lengths[right] <= pivot;
-			if (left < right){
-				swap(left, right);
-				left++;
-				right--;
-			}
-			else done = true;
-		}
+		while (!done) {
 
+			//if the line length to the left of pivot is smaller that pivot, go to next line
+			while(lines_lengths[first] < pivot) {
+				++first;
+			}
+
+			//if the line length to the right of pivot is greater than pivot, go to preceding line
+			while (pivot < lines_lengths[last]) {
+				--last;
+			}
+
+			//swap the lines until the first counter is larger than the last counter
+			if (first >= last) {
+				done  = true;
+			}
+			else {
+				swap(first, last);
+				++first;
+				--last;
+			}
+		}
 		paintComponent(this.getGraphics());
 		delay(10);
-		swap(pivotIdx, left);
-		pivotIdx = left;
-
-		return pivotIdx;
+		return last;
 	}
+
 	public void quickSort(int first, int last) {
-		if (first < last){
-			int pos = partition(first, last);
-			quickSort(first, pos - 1);
-			quickSort(pos + 1, last);
-
+		int mid;
+		if (first >= last) {
+			return;
 		}
+
+		mid = partition(first, last);
+		quickSort(first, mid);
+		quickSort(mid + 1, last);
 	}
+
+
 	public void QuickSort() {
 		Calendar start = Calendar.getInstance();
-		quickSort(0, total_number_of_lines-1);
+		quickSort(0, total_number_of_lines - 1);
+
 		Calendar end = Calendar.getInstance();
 		SortGUI.quickTime = end.getTime().getTime() - start.getTime().getTime();
 	}
