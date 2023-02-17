@@ -80,11 +80,12 @@ public class SortShow extends JPanel {
 			for (int j = 0; j < total_number_of_lines - i - 1; j++) {
 				if (lines_lengths[j] > lines_lengths[j + 1]) {
 					swap(j, j + 1);
-					paintComponent(this.getGraphics());
-					delay(10);
-				}
 
+				}
 			}
+			paintComponent(this.getGraphics());
+			delay(10);
+
 
 		}
 
